@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'views/home_screen.dart';
+import 'views/watch_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primaryColor: const Color.fromARGB(255, 14, 20, 72),
       ),
-      home: const HomeScreen(),
+      home: WatchScreen(),
     );
   }
 }
