@@ -1,5 +1,5 @@
+import 'package:cinehub_app/views/watch_screen.dart';
 import 'package:flutter/material.dart';
-import 'views/watch_screen.dart';
 
 void main() => runApp(const MyApp());
 

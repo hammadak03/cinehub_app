@@ -32,6 +32,8 @@ class MovieListModel {
   int? get totalPages => _totalPages;
   int? get totalResults => _totalResults;
 
+  get title => null;
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['page'] = _page;
