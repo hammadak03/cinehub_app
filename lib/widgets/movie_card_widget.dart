@@ -1,7 +1,7 @@
 import 'package:cinehub_app/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
-import '../viewmodels/movie_list_model.dart';
+import '../viewmodels/movie_model.dart';
 
 class MovieCard extends StatelessWidget {
   final Results movie;

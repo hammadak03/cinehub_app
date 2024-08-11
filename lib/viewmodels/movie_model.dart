@@ -1,5 +1,5 @@
 class MovieListModel {
-  MovieListModel.MovieListModel({
+  MovieListModel.movieListModel({
     int? page,
     List<Results>? results,
     int? totalPages,

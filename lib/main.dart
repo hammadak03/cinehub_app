@@ -1,21 +1,29 @@
-import 'package:cinehub_app/views/watch_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'viewmodels/movie_view_model.dart';
+import 'views/watch_screen.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => MovieViewModel()..fetchMovies()),
+      ],
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CineHub - Movie App',
       debugShowCheckedModeBanner: false,
+      title: 'Movie App',
       theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: const Color.fromARGB(255, 14, 20, 72),
+        primarySwatch: Colors.blue,
       ),
-      home: WatchScreen(),
+      home: const WatchScreen(),
     );
   }
 }

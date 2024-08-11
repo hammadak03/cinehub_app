@@ -1,7 +1,7 @@
 import 'package:cinehub_app/utils/genre_ids.dart';
 import 'package:flutter/material.dart';
 import '../utils/colors.dart';
-import '../viewmodels/movie_list_model.dart';
+import '../viewmodels/movie_model.dart';
 import '../widgets/custom_text_widget.dart';
 
 class DetailsScreen extends StatelessWidget {
