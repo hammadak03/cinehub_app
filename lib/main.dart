@@ -1,3 +1,4 @@
+import 'package:cinehub_app/views/genre_selection_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'viewmodels/movie_view_model.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WatchScreen(),
+      home: const GenreSelectionScreen(),
     );
   }
 }

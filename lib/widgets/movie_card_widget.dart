@@ -1,7 +1,8 @@
-import 'package:cinehub_app/widgets/custom_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import '../utils/colors.dart';
 import '../viewmodels/movie_model.dart';
+import 'custom_text_widget.dart';
 
 class MovieCard extends StatelessWidget {
   final Results movie;
@@ -21,10 +22,15 @@ class MovieCard extends StatelessWidget {
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.24,
                 width: MediaQuery.of(context).size.width * 0.9,
-                child: Image.network(
-                  'https://image.tmdb.org/t/p/original/${movie.posterPath}',
+                child: CachedNetworkImage(
+                  imageUrl:
+                      'https://image.tmdb.org/t/p/original/${movie.posterPath}',
                   fit: BoxFit.fill,
                   alignment: Alignment.center,
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),

@@ -1,11 +1,23 @@
 import 'package:cinehub_app/utils/genre_ids.dart';
+import 'package:cinehub_app/views/watch_screen.dart';
 import 'package:cinehub_app/widgets/custom_bottom_navigation_bar_widget.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/category_card_widget.dart';
 
 class GenreSelectionScreen extends StatelessWidget {
   const GenreSelectionScreen({super.key});
+
+  void _onGenreSelected(BuildContext context, int genreId, String genreName) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => WatchScreen(
+          genreId: genreId,
+          genreName: genreName,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,21 +52,54 @@ class GenreSelectionScreen extends StatelessWidget {
             crossAxisSpacing: 4,
             children: [
               CategoryCardWidget(
-                  title: 'Comedies', imagePath: comedyGenreImage),
-              CategoryCardWidget(title: 'Crime', imagePath: crimeGenreImage),
-              CategoryCardWidget(title: 'Family', imagePath: familyGenreImage),
+                title: 'Comedies',
+                imagePath: comedyGenreImage,
+                onTap: () => _onGenreSelected(context, 35, 'Comedies'),
+              ),
               CategoryCardWidget(
-                  title: 'Documentaries', imagePath: documentariesGenreImage),
-              CategoryCardWidget(title: 'Dramas', imagePath: dramasGenreImage),
+                title: 'Crime',
+                imagePath: crimeGenreImage,
+                onTap: () => _onGenreSelected(context, 80, 'Crime'),
+              ),
               CategoryCardWidget(
-                  title: 'Fantasy', imagePath: fantasyGenreImage),
+                title: 'Family',
+                imagePath: familyGenreImage,
+                onTap: () => _onGenreSelected(context, 10751, 'Family'),
+              ),
               CategoryCardWidget(
-                  title: 'History', imagePath: historyGenreImage),
-              CategoryCardWidget(title: 'Horror', imagePath: horrorGenreImage),
-              CategoryCardWidget(title: 'Sci-Fi', imagePath: scifiGenreImage),
+                title: 'Documentaries',
+                imagePath: documentariesGenreImage,
+                onTap: () => _onGenreSelected(context, 99, 'Documentaries'),
+              ),
+              CategoryCardWidget(
+                title: 'Dramas',
+                imagePath: dramasGenreImage,
+                onTap: () => _onGenreSelected(context, 18, 'Dramas'),
+              ),
+              CategoryCardWidget(
+                title: 'Fantasy',
+                imagePath: fantasyGenreImage,
+                onTap: () => _onGenreSelected(context, 14, 'Fantasy'),
+              ),
+              CategoryCardWidget(
+                title: 'History',
+                imagePath: historyGenreImage,
+                onTap: () => _onGenreSelected(context, 36, 'History'),
+              ),
+              CategoryCardWidget(
+                title: 'Horror',
+                imagePath: horrorGenreImage,
+                onTap: () => _onGenreSelected(context, 27, 'Horror'),
+              ),
+              CategoryCardWidget(
+                title: 'Sci-Fi',
+                imagePath: scifiGenreImage,
+                onTap: () => _onGenreSelected(context, 878, 'Sci-Fi'),
+              ),
               CategoryCardWidget(
                 title: 'Thriller',
                 imagePath: thrillerGenreImage,
+                onTap: () => _onGenreSelected(context, 53, 'Thriller'),
               ),
             ],
           ),

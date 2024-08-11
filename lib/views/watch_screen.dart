@@ -8,16 +8,26 @@ import '../widgets/custom_text_widget.dart';
 import '../widgets/movie_card_widget.dart';
 
 class WatchScreen extends StatelessWidget {
-  const WatchScreen({super.key});
+  final int? genreId;
+  final String? genreName;
+
+  const WatchScreen({Key? key, this.genreId, this.genreName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final movieViewModel = context.watch<MovieViewModel>();
 
+    // Filter movies by genre if genreId is provided
+    final movies = genreId == null
+        ? movieViewModel.movies
+        : movieViewModel.movies
+            .where((movie) => movie.genreIds!.contains(genreId))
+            .toList();
+
     return Scaffold(
       appBar: AppBar(
         title: CustomTextWidget(
-          text: 'Watch',
+          text: genreName ?? 'Watch',
           fontColor: darkPurple,
           fontSize: 20,
         ),
@@ -36,7 +46,7 @@ class WatchScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             )
           : ListView.builder(
-              itemCount: movieViewModel.movies.length,
+              itemCount: movies.length,
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
@@ -44,11 +54,11 @@ class WatchScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            DetailsScreen(movie: movieViewModel.movies[index]),
+                            DetailsScreen(movie: movies[index]),
                       ),
                     );
                   },
-                  child: MovieCard(movie: movieViewModel.movies[index]),
+                  child: MovieCard(movie: movies[index]),
                 );
               },
             ),
