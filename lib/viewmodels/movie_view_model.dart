@@ -1,14 +1,15 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-
 import 'movie_model.dart';
+import 'package:http/http.dart' as http;
 
 class MovieViewModel extends ChangeNotifier {
   List<Results> _movies = [];
+  List<Results> _filteredMovies = [];
   bool _loading = false;
 
-  List<Results> get movies => _movies;
+  List<Results> get movies =>
+      _filteredMovies.isEmpty ? _movies : _filteredMovies;
   bool get loading => _loading;
 
   Future<void> fetchMovies() async {
@@ -30,12 +31,26 @@ class MovieViewModel extends ChangeNotifier {
         _movies = (data['results'] as List).map((movieData) {
           return Results.fromJson(movieData);
         }).toList();
+        _filteredMovies = _movies;
       }
     } else {
       _movies = [];
     }
 
     _loading = false;
+    notifyListeners();
+  }
+
+  void searchMovies(String query) {
+    if (query.isEmpty) {
+      _filteredMovies = _movies;
+    } else {
+      _filteredMovies = _movies.where((movie) {
+        final titleLower = movie.title?.toLowerCase() ?? '';
+        final queryLower = query.toLowerCase();
+        return titleLower.contains(queryLower);
+      }).toList();
+    }
     notifyListeners();
   }
 }

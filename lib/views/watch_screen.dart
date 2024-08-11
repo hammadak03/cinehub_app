@@ -1,4 +1,5 @@
 import 'package:cinehub_app/viewmodels/movie_view_model.dart';
+import 'package:cinehub_app/views/genre_selection_screen.dart'; // Import the GenreSelectionScreen
 import 'package:cinehub_app/views/details_screen.dart';
 import 'package:cinehub_app/widgets/custom_bottom_navigation_bar_widget.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,15 @@ class WatchScreen extends StatelessWidget {
               Icons.search,
               size: 25,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      const GenreSelectionScreen(), // Navigate to GenreSelectionScreen
+                ),
+              );
+            },
           ),
         ],
       ),

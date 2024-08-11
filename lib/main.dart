@@ -1,8 +1,7 @@
-import 'package:cinehub_app/views/genre_selection_screen.dart';
+import 'package:cinehub_app/views/watch_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'viewmodels/movie_view_model.dart';
-import 'views/watch_screen.dart';
 
 void main() {
   runApp(
@@ -10,12 +9,14 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => MovieViewModel()..fetchMovies()),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const GenreSelectionScreen(),
+      home: const WatchScreen(),
     );
   }
 }

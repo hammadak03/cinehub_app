@@ -1,8 +1,9 @@
-import 'package:cinehub_app/utils/genre_ids.dart';
-import 'package:cinehub_app/views/watch_screen.dart';
-import 'package:cinehub_app/widgets/custom_bottom_navigation_bar_widget.dart';
+import 'package:cinehub_app/views/search_screen.dart'; // Import the SearchScreen
 import 'package:flutter/material.dart';
+import '../utils/genre_ids.dart';
 import '../widgets/category_card_widget.dart';
+import '../widgets/custom_bottom_navigation_bar_widget.dart';
+import 'watch_screen.dart';
 
 class GenreSelectionScreen extends StatelessWidget {
   const GenreSelectionScreen({super.key});
@@ -19,12 +20,21 @@ class GenreSelectionScreen extends StatelessWidget {
     );
   }
 
+  void _openSearchScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SearchScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const TextField(
-            decoration: InputDecoration(
+          title: TextField(
+            decoration: const InputDecoration(
               hintText: 'TV shows, movies and more',
               hintStyle: TextStyle(
                   color: Color.fromARGB(100, 32, 33, 67),
@@ -39,6 +49,9 @@ class GenreSelectionScreen extends StatelessWidget {
               ),
               border: InputBorder.none,
             ),
+            onTap: () {
+              _openSearchScreen(context); // Navigate to SearchScreen
+            },
           ),
           backgroundColor: Colors.white,
         ),
