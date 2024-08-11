@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cinehub_app/utils/genre_ids.dart';
 
 class GenreMoviesScreen extends StatelessWidget {
   final int genreId;
@@ -8,8 +7,8 @@ class GenreMoviesScreen extends StatelessWidget {
   const GenreMoviesScreen({
     required this.genreId,
     required this.genreName,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
