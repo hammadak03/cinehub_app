@@ -12,6 +12,9 @@ A feature-rich Flutter app that showcases movies with:
 - 🏷️ Detailed movie info (description, genres, ratings)
 - 🖼️ High-quality posters and backdrops
 
+## 📽 Demo
+[Demo Video (Google Drive)](https://drive.google.com/file/d/1hnCWBtZm9z1Jk8KkNJSsOj2DQ7u0NoGu/view?usp=drive_link)
+
 ## 🏗️ Architecture Overview
 
 ```
@@ -54,7 +57,7 @@ lib/
 
 | Home Screen | Movie Details | Search |
 | :---------- | :------------ | :------- |
-| <img src="assets/home_screen.png" width="250"> | <img src="assets/details_screen.png" width="250"> | <img src="assets/search_screen.png" width="250"> |
+| <img src="assets/fonts/home_screen.png" width="250"> | <img src="assets/fonts/details_screen.png" width="250"> | <img src="assets/fonts/search_screen.png" width="250"> |
 
 ## 🚀 Setup
 
